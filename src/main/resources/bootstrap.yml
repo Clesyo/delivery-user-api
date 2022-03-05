@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: delivery-user
+  cloud:
+    config:
+      uri: http://localhost:8888
+      enabled: true
+  profiles:
+    active: default
+  config:
+    import: configserver:http://localhost:8888
