@@ -5,11 +5,15 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import br.com.delivery.user.enums.UserType;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +27,9 @@ public class User extends BaseEntity {
 	private String email;
 
 	private String password;
+	
+	@Enumerated(EnumType.STRING)
+	private UserType type;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -50,6 +57,14 @@ public class User extends BaseEntity {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public UserType getType() {
+		return type;
+	}
+
+	public void setType(UserType type) {
+		this.type = type;
 	}
 
 	public Set<Role> getRoles() {

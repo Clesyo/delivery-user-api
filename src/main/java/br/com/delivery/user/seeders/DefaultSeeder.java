@@ -1,6 +1,6 @@
 package br.com.delivery.user.seeders;
 
-import static br.com.delivery.user.enums.UserType.*;
+import static br.com.delivery.user.enums.RoleType.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,5 +47,4 @@ public class DefaultSeeder {
 			LOGGER.info("Default roles created <<<");
 		}
 	}
-
 }

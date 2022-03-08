@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import br.com.delivery.user.DeliveryUserContext;
-import br.com.delivery.user.enums.UserType;
+import br.com.delivery.user.enums.RoleType;
 import br.com.delivery.user.model.Role;
 
 @Component
@@ -21,7 +21,7 @@ public abstract class Utils {
 
 	private static DeliveryUserContext context;
 
-	public static List<Role> convertUserTypeRoles(UserType... types) {
+	public static List<Role> convertUserTypeRoles(RoleType... types) {
 		return Arrays.stream(types).map(type -> new Role(type.name())).collect(Collectors.toList());
 	}
 
